@@ -3,8 +3,13 @@
     <h1>Welcome to the Todo App</h1>
   </div>
   <div class="todo-input">
-      <input type="text" placeholder="Enter your name" (keyup.enter)="addTodo()" [(ngModel)]="username">
+      <input type="text" placeholder="Enter your name" (keyup.enter)="startTodo(username)" [(ngModel)]="username">
   </div>
-  <a routerLink="/todo/{{username}}"><input type="button" class="todo-input__button" value="Start Working!"></a>
-  <a routerLink="users">Users</a>
+  <div class="home__error">{{usernameError}}</div>
+  <a routerLink="/todo/{{username}}">
+    <input type="button" class="todo-input__button" value="Start Working!" (click)="checkValue(username)">
+  </a>
+  <br>  
+  <br>  
+  <div><a routerLink="users">Users</a></div>
 </div>

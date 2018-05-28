@@ -28,7 +28,6 @@
 
         flex: 1;
     }
-
 }
 
 .todo-input__button {
@@ -45,4 +44,10 @@
     &:hover {
         background: darken(#fb808b, 5%);
     }
+}
+
+.home__error {
+    font-size: .9em;
+    color: #fb808b;
+    margin: 10px 0 5px;
 }

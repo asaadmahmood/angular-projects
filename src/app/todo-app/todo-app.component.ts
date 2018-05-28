@@ -13,37 +13,44 @@ export class TodoAppComponent implements OnInit {
     todoList = [{
         text: 'Do Homework',
         date: '22nd June',
-        done: false
+        done: false,
+        editing: false
     }, {
         text: 'Browse the Web',
         date: '28th June',
-        done: false
+        done: false,
+        editing: false
     }, {
         text: 'Work on your project',
         date: '1st July',
-        done: false
+        done: false,
+        editing: false
     }, {
         text: 'Whatever',
         date: '18th August',
-        done: false
+        done: false,
+        editing: false
     }];
 
     addNewTodo (newTodoText) {
         this.todoList.push({
             text: newTodoText.text,
             date: newTodoText.date,
-            done: false
+            done: false,
+            editing: false
         })
     }
 
     removeCurrentTodo (todoValue) {
-        console.log(todoValue);
-        for(var i = 0; i < this.todoList.length; i++) {
-            if(this.todoList[i].text == todoValue) {
-                this.todoList.splice(i, 1);
-                break;
-            }
-        }
+        var todoIndex = this.todoList.indexOf(todoValue);
+        this.todoList.splice(todoIndex, 1);
+    }
+
+    saveCurrentTodo (updatedTodo) {        
+        var todoIndex = this.todoList.indexOf(updatedTodo.todoValue);
+        this.todoList[todoIndex].text = updatedTodo.text,
+        this.todoList[todoIndex].date = updatedTodo.date,
+        this.todoList[todoIndex].editing = false
     }
 
     constructor(
