@@ -1,0 +1,7 @@
+<div class="todo-list">
+    <div class="todo-list-item" *ngFor="let todoItem of list">
+        <div class="text">
+            {{todoItem.text | limitTo : 20}}
+        </div>
+    </div>
+</div>

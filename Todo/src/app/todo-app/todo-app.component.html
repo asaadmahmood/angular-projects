@@ -1,0 +1,8 @@
+<div class="todo-app">
+    <div class="heading">
+        <h1>Welcome to {{title}}</h1>
+    </div>    
+    <ta-todo-input (todoAdded)="addNewTodo($event)"></ta-todo-input>
+    <div class="divider"></div>
+    <ta-todo-list [list]='todoList' ></ta-todo-list>
+</div>
