@@ -1,0 +1,11 @@
+<div class="todo-list">
+    <div class="todo-list__item" *ngFor="let todoItem of list">
+        <div class="todo-list__task">
+            {{todoItem.text | limitTo : 20}}
+        </div>
+        <div class="todo-list__date">
+            {{todoItem.date}}
+        </div>
+         <i class="fa fa-trash" aria-hidden="true" (click)="removeTodo(todoItem)" (click)="getIndex(todoItem)"></i>
+    </div>
+</div>
