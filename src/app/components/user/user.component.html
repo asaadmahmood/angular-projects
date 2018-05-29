@@ -1,0 +1,29 @@
+<div class="user__container intro__container">
+  <div *ngFor="let user of users">
+    <div class="user" *ngIf="user.email == email" (click)="goToUser(user.email)">
+      <div class="user__image">
+        <img src="{{user.picture.large}}" alt="">
+      </div>
+      <h2 class="user__name">{{user.name.first}} {{user.name.last}}</h2>
+      <div class="user__info">
+        <div>{{user.gender}}</div>
+        <div>{{user.location.street}}, {{user.location.city}}, {{user.location.state}} </div>
+        <div>{{user.location.postcode}}</div>
+      </div>
+      <div class="user-contact">
+        <div class="user-contact__item">
+          <i class="fa fa-phone"></i>
+          <div>{{user.phone}}</div>
+        </div>
+        <div class="user-contact__item">
+          <i class="fa fa-envelope"></i>
+          <div>{{user.email}}</div>
+        </div>
+        <div class="user-contact__item">
+          <i class="fa fa-mobile"></i>
+          <div>{{user.cell}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -43,6 +43,6 @@ export class TodoListComponent implements OnInit {
     }
 
     saveTodo(todoValue) {
-        this.todoSaved.emit({text: this.currentTodoVal, date: this.currentTodoDate, todoValue});        
+        this.todoSaved.emit({text: this.currentTodoVal, date: this.currentTodoDate, todoValue});
     }
 }

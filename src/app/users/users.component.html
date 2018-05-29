@@ -1,7 +1,18 @@
 <div class="users">
-  <div class="list">
-    <div class="list-item" *ngFor="let user of users">
-      {{user.name.first}} {{user.name.last}}
+  <div class="user-list intro__container">
+    <h2>Our Esteemed Users</h2>
+    <div class="user-list__item" *ngFor="let user of users" (click)="goToUser(user.email)">
+      <div class="user-list__picture">
+        <img src="{{user.picture.medium}}" alt="">
+      </div>
+      <div class="user-list__info">
+        <div class="user-list__name">
+          {{user.name.first}} {{user.name.last}}
+        </div>
+        <div class="user-list__registered">
+          With us since {{user.registered | limitTo : 10}}
+        </div>
+      </div>
     </div>
   </div>
 </div>

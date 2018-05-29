@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TodoAppComponent implements OnInit {
     title = 'Todo App';
-    username = 'Do you really not have a name?';
+    username = '';
 
     todoList = [{
         text: 'Do Homework',
@@ -46,7 +46,7 @@ export class TodoAppComponent implements OnInit {
         this.todoList.splice(todoIndex, 1);
     }
 
-    saveCurrentTodo (updatedTodo) {        
+    saveCurrentTodo (updatedTodo) {
         var todoIndex = this.todoList.indexOf(updatedTodo.todoValue);
         this.todoList[todoIndex].text = updatedTodo.text,
         this.todoList[todoIndex].date = updatedTodo.date,

@@ -14,4 +14,8 @@ export class UsersService {
   getUsers() {
     return this.http.get('https://randomuser.me/api/?results=50');
   }
+
+  getCurrentUsers(seed) {
+    return this.http.get('https://randomuser.me/api/?results=50&seed=' + seed);
+  }
 }

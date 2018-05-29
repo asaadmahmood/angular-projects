@@ -3,10 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { TodoAppComponent } from './todo-app/todo-app.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [{
   path: 'todo/:message',
-    component: TodoAppComponent
+  component: TodoAppComponent
+},
+{
+  path: 'users/user/:seed/:email',
+  component: UserComponent
 },
 {
   path: '',

@@ -1,12 +1,13 @@
 <div class="todo-list">
     <h3>Todo</h3>
-    <div *ngFor="let todoItem of list">
+    <div *ngFor="let todoItem of list;">
+        <!-- Need to check if no items are printed and then show a custom message. -->
         <div class="todo-list__item" *ngIf="!todoItem.done" [ngClass]="{'edit': todoItem.editing}">
             <div class="todo-list__task">
                 <div class="task__content">
                     <i class="fa fa-check" aria-hidden="true" (click)="doneTodo(todoItem)"></i>
                     <span (click)="editTodo(todoItem)">
-                        {{todoItem.text | limitTo : 20}}                    
+                        {{todoItem.text}}
                     </span>
                     <i class="fa fa-pencil" aria-hidden="true" (click)="editTodo(todoItem)"></i>
                 </div>
@@ -23,8 +24,8 @@
                 </div>
             </div>
              <i class="fa fa-trash" aria-hidden="true" (click)="removeTodo(todoItem)"></i>
-        </div>   
-    </div> 
+        </div>
+    </div>
 
     <h3>Done</h3>
     <div *ngFor="let todoItem of list">

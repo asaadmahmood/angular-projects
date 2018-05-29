@@ -1,0 +1,49 @@
+@import "~compass-mixins/lib/compass";
+@import "src/styles/functions.scss";
+
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0 0;
+
+    h2 {
+        flex: 0 100%;
+        text-align: center;
+        margin: 2.5em 0 2em;
+    }
+}
+
+.user-list__item {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    cursor: pointer;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    flex: 0 50%;
+
+    &:hover {
+        img {
+            @include scale(1.2);
+        }
+    }
+}
+
+.user-list__picture {
+    width: 64px;
+
+    img {
+        @include single-transition(all, .25s, ease);
+        border-radius: 50px;
+    }
+}
+
+.user-list__info {
+    padding-left: 15px;
+}
+
+.user-list__registered {
+    opacity: .5;
+    font-size: .9em;
+    margin: 6px 0 0;
+}

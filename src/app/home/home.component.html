@@ -1,4 +1,4 @@
-<div class="home">
+<div class="home intro__container">
   <div class="home__heading">
     <h1>Welcome to the Todo App</h1>
   </div>
@@ -7,9 +7,8 @@
   </div>
   <div class="home__error">{{usernameError}}</div>
   <a routerLink="/todo/{{username}}">
-    <input type="button" class="todo-input__button" value="Start Working!" (click)="checkValue(username)">
+    <input type="button" class="todo__button" value="Get Started" (click)="checkValue(username)">
   </a>
-  <br>  
-  <br>  
-  <div><a routerLink="users">Users</a></div>
+  <h4 class="home__subheading">Or have a look at our satisfied users</h4>
+  <div><a routerLink="users"><input type="button" class="todo__button light" value="Our Users"></a></div>
 </div>
