@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./todo-app.component.scss']
 })
 export class TodoAppComponent implements OnInit {
+    currentList: any;
+
     title = 'Todo App';
     username = '';
 
@@ -39,11 +41,15 @@ export class TodoAppComponent implements OnInit {
             done: false,
             editing: false
         })
+
+        localStorage.setItem('currentList', JSON.stringify(this.todoList));
     }
 
     removeCurrentTodo (todoValue) {
         var todoIndex = this.todoList.indexOf(todoValue);
         this.todoList.splice(todoIndex, 1);
+
+        localStorage.setItem('currentList', JSON.stringify(this.todoList));
     }
 
     saveCurrentTodo (updatedTodo) {
@@ -51,16 +57,23 @@ export class TodoAppComponent implements OnInit {
         this.todoList[todoIndex].text = updatedTodo.text,
         this.todoList[todoIndex].date = updatedTodo.date,
         this.todoList[todoIndex].editing = false
+
+        localStorage.setItem('currentList', JSON.stringify(this.todoList));
     }
 
     constructor(
         private route: ActivatedRoute
-      ) { }
+    ) {
+        this.currentList = (localStorage.getItem('currentList')!==null) ? JSON.parse(localStorage.getItem('currentList')) : [  ];
+        this.todoList = this.currentList;
+    }
 
-      ngOnInit() {
+    ngOnInit() {
         this.route.params
         .subscribe((parameters) => {
             this.username = parameters.message;
         });
-      }
+
+        localStorage.setItem('currentList', JSON.stringify(this.todoList));
+    }
 }
