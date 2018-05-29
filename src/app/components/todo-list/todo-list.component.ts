@@ -9,6 +9,8 @@ export class TodoListComponent implements OnInit {
     @Input() list = [];
     @Output() todoRemoved = new EventEmitter<any>();
     @Output() todoSaved = new EventEmitter<any>();
+    @Output() todoDone = new EventEmitter<any>();
+
     editClass = '';
     currentTodoVal = '';
     currentTodoDate = '';
@@ -40,6 +42,7 @@ export class TodoListComponent implements OnInit {
 
     doneTodo(todoValue) {
         todoValue.done = true;
+        this.todoDone.emit(todoValue);
     }
 
     saveTodo(todoValue) {

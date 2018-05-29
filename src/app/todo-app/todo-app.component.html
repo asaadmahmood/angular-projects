@@ -4,7 +4,7 @@
     </div>
     <ta-todo-input (todoAdded)="addNewTodo($event)"></ta-todo-input>
     <div class="divider"></div>
-    <ta-todo-list [list]='todoList' (todoRemoved)="removeCurrentTodo($event)" (todoSaved)="saveCurrentTodo($event)"></ta-todo-list>
+    <ta-todo-list [list]='todoList' (todoRemoved)="removeCurrentTodo($event)" (todoDone)="doneCurrentTodo($event)" (todoSaved)="saveCurrentTodo($event)"></ta-todo-list>
 </div>
 
 

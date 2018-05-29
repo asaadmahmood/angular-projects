@@ -61,11 +61,27 @@ export class TodoAppComponent implements OnInit {
         localStorage.setItem('currentList', JSON.stringify(this.todoList));
     }
 
+    doneCurrentTodo (todoValue) {
+        var todoIndex = this.todoList.indexOf(todoValue);
+        console.log(todoIndex);
+        this.todoList[todoIndex].text = todoValue.text,
+        this.todoList[todoIndex].date = todoValue.date,
+        this.todoList[todoIndex].done = todoValue.done,
+        this.todoList[todoIndex].editing = false,
+
+        localStorage.setItem('currentList', JSON.stringify(this.todoList));
+    }
+
     constructor(
         private route: ActivatedRoute
     ) {
         this.currentList = (localStorage.getItem('currentList')!==null) ? JSON.parse(localStorage.getItem('currentList')) : [  ];
-        this.todoList = this.currentList;
+
+        if (!this.currentList || this.currentList.length === 0) {
+            this.todoList; // whatever you want  when local storage is empty
+        } else {
+            this.todoList = this.currentList;
+        }
     }
 
     ngOnInit() {
