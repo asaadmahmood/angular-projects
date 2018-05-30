@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'ta-todo-list',
@@ -14,10 +14,15 @@ export class TodoListComponent implements OnInit {
     editClass = '';
     currentTodoVal = '';
     currentTodoDate = '';
+    todoHighlight = 'red';
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    setColor(color){
+        this.todoHighlight = color;
     }
 
     removeTodo(todoValue) {
@@ -34,7 +39,7 @@ export class TodoListComponent implements OnInit {
             element.editing = false;
         });
 
-        // How do I focus on the input
+        // How do I focus on the input        
         todoValue.editing = true;
         this.currentTodoVal = todoValue.text;
         this.currentTodoDate = todoValue.date;

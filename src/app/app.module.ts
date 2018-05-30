@@ -13,6 +13,8 @@ import { UsersComponent } from './users/users.component';
 import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './components/user/user.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { FocusInputDirective } from './directives/focus-input.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UserComponent } from './components/user/user.component';
     LimitToPipe,
     HomeComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    HighlightDirective,
+    FocusInputDirective
   ],
   imports: [
     BrowserModule,

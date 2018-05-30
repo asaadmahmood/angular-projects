@@ -4,7 +4,7 @@
         <!-- Need to check if no items are printed and then show a custom message. -->
         <div class="todo-list__item" *ngIf="!todoItem.done" [ngClass]="{'edit': todoItem.editing}">
             <div class="todo-list__task">
-                <div class="task__content">
+                <div class="task__content" (click)="setColor('cyan')">
                     <i class="fa fa-check" aria-hidden="true" (click)="doneTodo(todoItem)"></i>
                     <span (click)="editTodo(todoItem)">
                         {{todoItem.text}}
@@ -12,7 +12,7 @@
                     <i class="fa fa-pencil" aria-hidden="true" (click)="editTodo(todoItem)"></i>
                 </div>
                 <div class="todo-list__edit" *ngIf="todoItem.editing">
-                    <input type="text" (blur)="stopEdit(todoItem)" (keyup.escape)="stopEdit(todoItem)" (keyup.enter)="saveTodo(todoItem)" [(ngModel)]="currentTodoVal">
+                    <input taFocusInput type="text" (keyup.escape)="stopEdit(todoItem)" (keyup.enter)="saveTodo(todoItem)" [(ngModel)]="currentTodoVal">
                 </div>
             </div>
             <div class="todo-list__date">
@@ -20,7 +20,7 @@
                     {{todoItem.date}}
                 </div>
                 <div class="todo-list__edit" *ngIf="todoItem.editing">
-                    <input type="text" (blur)="stopEdit(todoItem)" (keyup.escape)="stopEdit(todoItem)" (keyup.enter)="saveTodo(todoItem)" [(ngModel)]="currentTodoDate">
+                    <input type="text" (keyup.escape)="stopEdit(todoItem)" (keyup.enter)="saveTodo(todoItem)" [(ngModel)]="currentTodoDate">
                 </div>
             </div>
              <i class="fa fa-trash" aria-hidden="true" (click)="removeTodo(todoItem)"></i>

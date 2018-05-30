@@ -18,7 +18,7 @@ export class TodoInputComponent implements OnInit {
   }
 
   addTodo() {
-    this.todoAdded.emit({text: this.newTodoVal, date: this.newTodoDate});
+    this.todoAdded.emit({ text: this.newTodoVal, date: this.newTodoDate });
     this.newTodoVal = '';
     this.newTodoDate = '';
   }
