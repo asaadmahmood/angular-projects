@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~compass-mixins/lib/compass";
-@import "src/styles/functions.scss";
-@import "src/styles/variables.scss";
+@import "~src/styles/functions";
+@import "~src/styles/variables";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500');
 
 * {
